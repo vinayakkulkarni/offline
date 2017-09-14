@@ -9,10 +9,10 @@
             </p>
             
             <ul class="content__container__list">
-              <li class="content__container__list__item">online !</li>
-              <li class="content__container__list__item">dope !</li>
-              <li class="content__container__list__item">sweet !</li>
-              <li class="content__container__list__item">awesome !</li>
+              <li class="content__container__list__item">online!</li>
+              <li class="content__container__list__item">dope!</li>
+              <li class="content__container__list__item">sweet!</li>
+              <li class="content__container__list__item">nice!</li>
             </ul>
           </div>
         </div>
@@ -25,10 +25,10 @@
             </p>
             
             <ul class="content__container__list">
-              <li class="content__container__list__item">offline !</li>
-              <li class="content__container__list__item">offline !</li>
-              <li class="content__container__list__item">offline !</li>
-              <li class="content__container__list__item">offline !</li>
+              <li class="content__container__list__item">offline!</li>
+              <li class="content__container__list__item">offline!</li>
+              <li class="content__container__list__item">offline!</li>
+              <li class="content__container__list__item">offline!</li>
             </ul>
           </div>
         </div>
