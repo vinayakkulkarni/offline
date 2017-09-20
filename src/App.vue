@@ -91,6 +91,7 @@ body {
   position: fixed;
   background-color: #34495e;
   margin-top: 0px !important;
+  margin-left: 0px !important;
 }
 
 .content {
