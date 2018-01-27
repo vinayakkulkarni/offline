@@ -99,7 +99,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 160px;
   overflow:hidden;
   
   font-family: 'Lato', sans-serif;
