@@ -14,7 +14,7 @@
             <p class="content__container__text">
               You're
             </p>
-            
+
             <ul class="content__container__list">
               <li class="content__container__list__item">online!</li>
               <li class="content__container__list__item">dope!</li>
@@ -30,7 +30,7 @@
             <p class="content__container__text glitch" data-text="You're">
               You're
             </p>
-            
+
             <ul class="content__container__list">
               <li class="content__container__list__item glitch" data-text="offline!">offline!</li>
               <li class="content__container__list__item glitch" data-text="offline!">offline!</li>
@@ -100,14 +100,14 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   overflow:hidden;
-  
+
   font-family: 'Lato', sans-serif;
   font-size: 35px;
   line-height: 40px;
   color: #ecf0f1;
-  
+
   &__container {
-    font-weight: 600;
+    font-weight: 700;
     overflow: hidden;
     height: 40px;
     padding: 0 40px;
@@ -126,11 +126,11 @@ body {
     &:after, &:before {
       position: absolute;
       top: 0;
-      
+
       color: #16a085;
       font-size: 42px;
       line-height: 40px;
-      
+
       -webkit-animation-name: opacity;
       -webkit-animation-duration: 2s;
       -webkit-animation-iteration-count: infinite;
@@ -150,7 +150,7 @@ body {
       padding-left: 110px;
       text-align: left;
       list-style: none;
-      
+
       -webkit-animation-name: change;
       -webkit-animation-duration: 10s;
       -webkit-animation-iteration-count: infinite;
@@ -173,14 +173,14 @@ body {
   transform: translate(-50%, -50%);
   height: 160px;
   overflow:hidden;
-  
+
   font-family: 'Lato', sans-serif;
   font-size: 35px;
   line-height: 40px;
   color: #ecf0f1;
-  
+
   &__container {
-    font-weight: 600;
+    font-weight: 700;
     overflow: hidden;
     height: 40px;
     padding: 0 40px;
@@ -199,11 +199,11 @@ body {
     &:after, &:before {
       position: absolute;
       top: 0;
-      
+
       color: red;
       font-size: 42px;
       line-height: 40px;
-      
+
       -webkit-animation-name: opacity;
       -webkit-animation-duration: 2s;
       -webkit-animation-iteration-count: infinite;
@@ -223,7 +223,7 @@ body {
       padding-left: 110px;
       text-align: left;
       list-style: none;
-      
+
       -webkit-animation-name: change;
       -webkit-animation-duration: 10s;
       -webkit-animation-iteration-count: infinite;
@@ -261,7 +261,7 @@ body {
   color:white;
   background:#34495e;
   overflow:hidden;
-  clip:rect(0,900px,0,0); 
+  clip:rect(0,900px,0,0);
   animation:noise-anim 2s infinite linear alternate-reverse;
 }
 
@@ -277,12 +277,12 @@ body {
   content:attr(data-text);
   position:absolute;
   left:-2px;
-  text-shadow:1px 0 blue; 
+  text-shadow:1px 0 blue;
   top:0;
   color:white;
   background:#34495e;
   overflow:hidden;
-  clip:rect(0,900px,0,0); 
+  clip:rect(0,900px,0,0);
   animation:noise-anim-2 3s infinite linear alternate-reverse;
 }
 
@@ -354,7 +354,7 @@ body {
 
 // 6x + 6y = 100 (100% duration)
 
-// HERE : 
+// HERE :
 // y = 4 -> Animation between two lines
 // x = 12.66 -> Time spent on a line
 
