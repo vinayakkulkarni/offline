@@ -7,83 +7,88 @@
         <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
       </svg>
     </a>
-    <detect-offline>
-      <div slot="online">
-        <div class="content">
-          <div class="content__container">
-            <p class="content__container__text">
-              You're
-            </p>
+    <detect-offline @detected-condition="detected" />
+    <div class="content" v-if="state">
+      <div class="content__container">
+        <p class="content__container__text">
+          You're
+        </p>
 
-            <ul class="content__container__list">
-              <li class="content__container__list__item">online!</li>
-              <li class="content__container__list__item">dope!</li>
-              <li class="content__container__list__item">sweet!</li>
-              <li class="content__container__list__item">nice!</li>
-            </ul>
-          </div>
-        </div>
+        <ul class="content__container__list">
+          <li class="content__container__list__item">online!</li>
+          <li class="content__container__list__item">dope!</li>
+          <li class="content__container__list__item">sweet!</li>
+          <li class="content__container__list__item">nice!</li>
+        </ul>
       </div>
-      <div slot="offline">
-        <div class="content-offline">
-          <div class="content-offline__container">
-            <p class="content__container__text glitch" data-text="You're">
-              You're
-            </p>
+    </div>
+    <div class="content-offline" v-if="!state">
+      <div class="content-offline__container">
+        <p class="content__container__text glitch" data-text="You're">
+          You're
+        </p>
 
-            <ul class="content__container__list">
-              <li class="content__container__list__item glitch" data-text="offline!">offline!</li>
-              <li class="content__container__list__item glitch" data-text="offline!">offline!</li>
-              <li class="content__container__list__item glitch" data-text="offline!">offline!</li>
-              <li class="content__container__list__item glitch" data-text="offline!">offline!</li>
-            </ul>
-          </div>
-        </div>
+        <ul class="content__container__list">
+          <li class="content__container__list__item glitch" data-text="offline!">offline!</li>
+          <li class="content__container__list__item glitch" data-text="offline!">offline!</li>
+          <li class="content__container__list__item glitch" data-text="offline!">offline!</li>
+          <li class="content__container__list__item glitch" data-text="offline!">offline!</li>
+        </ul>
       </div>
-    </detect-offline>
+    </div>
   </div>
 </template>
 
 <script>
-import detectOffline from 'v-offline';
+import DetectOffline from 'v-offline';
 
 export default {
   name: 'app',
-  components: { detectOffline },
+  components: { DetectOffline },
+  data() {
+    return {
+      state: null,
+    };
+  },
+  methods: {
+    detected(e) {
+      this.state = e;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .github-corner {
-	position: initial !important;
-	z-index: 999;
-	&:hover {
-		.octo-arm {
-			animation: octocat-wave 560ms ease-in-out;
-		}
-		@media (max-width: 500px) {
-			&:hover .octo-arm {
-				animation: none;
-			}
-			.octo-arm {
-				animation: octocat-wave 560ms ease-in-out;
-			}
-		}
-	}
+  position: initial !important;
+  z-index: 999;
+  &:hover {
+    .octo-arm {
+      animation: octocat-wave 560ms ease-in-out;
+    }
+    @media (max-width: 500px) {
+      &:hover .octo-arm {
+        animation: none;
+      }
+      .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+      }
+    }
+  }
 }
 @keyframes octocat-wave {
-	0%,
-	100% {
-		transform: rotate(0);
-	}
-	20%,
-	60% {
-		transform: rotate(-25deg);
-	}
-	40%,
-	80% {
-		transform: rotate(10deg);
-	}
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
 }
 body {
   width: 100%;
@@ -99,7 +104,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow:hidden;
+  overflow: hidden;
 
   font-family: 'Lato', sans-serif;
   font-size: 35px;
@@ -123,7 +128,8 @@ body {
       right: 0;
     }
 
-    &:after, &:before {
+    &:after,
+    &:before {
       position: absolute;
       top: 0;
 
@@ -159,8 +165,8 @@ body {
       animation-iteration-count: infinite;
 
       &__item {
-        line-height:40px;
-        margin:0;
+        line-height: 40px;
+        margin: 0;
       }
     }
   }
@@ -170,10 +176,9 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  height: 160px;
-  overflow:hidden;
-
+  overflow: hidden;
   font-family: 'Lato', sans-serif;
   font-size: 35px;
   line-height: 40px;
@@ -196,7 +201,8 @@ body {
       right: 0;
     }
 
-    &:after, &:before {
+    &:after,
+    &:before {
       position: absolute;
       top: 0;
 
@@ -232,114 +238,210 @@ body {
       animation-iteration-count: infinite;
 
       &__item {
-        line-height:40px;
-        margin:0;
+        line-height: 40px;
+        margin: 0;
       }
     }
   }
 }
 
-.glitch{
-  color:white;
-  position:relative;
-  margin:0 auto;
+.glitch {
+  color: white;
+  position: relative;
+  margin: 0 auto;
 }
-@keyframes noise-anim{
-  $steps:20;
-  @for $i from 0 through $steps{
-    #{percentage($i*(1/$steps))}{
-      clip:rect(random(100)+px,9999px,random(100)+px,0);
+@keyframes noise-anim {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0);
     }
   }
 }
-.glitch:after{
-  content:attr(data-text);
-  position:absolute;
-  left:2px;
-  text-shadow:-1px 0 red;
-  top:0;
-  color:white;
-  background:#34495e;
-  overflow:hidden;
-  clip:rect(0,900px,0,0);
-  animation:noise-anim 2s infinite linear alternate-reverse;
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -1px 0 red;
+  top: 0;
+  color: white;
+  background: #34495e;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim 2s infinite linear alternate-reverse;
 }
 
-@keyframes noise-anim-2{
-  $steps:20;
-  @for $i from 0 through $steps{
-    #{percentage($i*(1/$steps))}{
-      clip:rect(random(100)+px,9999px,random(100)+px,0);
+@keyframes noise-anim-2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0);
     }
   }
 }
-.glitch:before{
-  content:attr(data-text);
-  position:absolute;
-  left:-2px;
-  text-shadow:1px 0 blue;
-  top:0;
-  color:white;
-  background:#34495e;
-  overflow:hidden;
-  clip:rect(0,900px,0,0);
-  animation:noise-anim-2 3s infinite linear alternate-reverse;
+.glitch:before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 blue;
+  top: 0;
+  color: white;
+  background: #34495e;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-anim-2 3s infinite linear alternate-reverse;
 }
 
 @-webkit-keyframes opacity {
-  0%, 100% {opacity:0;}
-  50% {opacity:1;}
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes change {
-  0%, 12.66%, 100% {transform:translate3d(0,0,0);}
-  16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-  33.32%,45.98% {transform:translate3d(0,-50%,0);}
-  49.98%,62.64% {transform:translate3d(0,-75%,0);}
-  66.64%,79.3% {transform:translate3d(0,-50%,0);}
-  83.3%,95.96% {transform:translate3d(0,-25%,0);}
+  0%,
+  12.66%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  16.66%,
+  29.32% {
+    transform: translate3d(0, -25%, 0);
+  }
+  33.32%,
+  45.98% {
+    transform: translate3d(0, -50%, 0);
+  }
+  49.98%,
+  62.64% {
+    transform: translate3d(0, -75%, 0);
+  }
+  66.64%,
+  79.3% {
+    transform: translate3d(0, -50%, 0);
+  }
+  83.3%,
+  95.96% {
+    transform: translate3d(0, -25%, 0);
+  }
 }
 
 @-o-keyframes opacity {
-  0%, 100% {opacity:0;}
-  50% {opacity:1;}
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @-o-keyframes change {
-  0%, 12.66%, 100% {transform:translate3d(0,0,0);}
-  16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-  33.32%,45.98% {transform:translate3d(0,-50%,0);}
-  49.98%,62.64% {transform:translate3d(0,-75%,0);}
-  66.64%,79.3% {transform:translate3d(0,-50%,0);}
-  83.3%,95.96% {transform:translate3d(0,-25%,0);}
+  0%,
+  12.66%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  16.66%,
+  29.32% {
+    transform: translate3d(0, -25%, 0);
+  }
+  33.32%,
+  45.98% {
+    transform: translate3d(0, -50%, 0);
+  }
+  49.98%,
+  62.64% {
+    transform: translate3d(0, -75%, 0);
+  }
+  66.64%,
+  79.3% {
+    transform: translate3d(0, -50%, 0);
+  }
+  83.3%,
+  95.96% {
+    transform: translate3d(0, -25%, 0);
+  }
 }
 
 @-moz-keyframes opacity {
-  0%, 100% {opacity:0;}
-  50% {opacity:1;}
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @-moz-keyframes change {
-  0%, 12.66%, 100% {transform:translate3d(0,0,0);}
-  16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-  33.32%,45.98% {transform:translate3d(0,-50%,0);}
-  49.98%,62.64% {transform:translate3d(0,-75%,0);}
-  66.64%,79.3% {transform:translate3d(0,-50%,0);}
-  83.3%,95.96% {transform:translate3d(0,-25%,0);}
+  0%,
+  12.66%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  16.66%,
+  29.32% {
+    transform: translate3d(0, -25%, 0);
+  }
+  33.32%,
+  45.98% {
+    transform: translate3d(0, -50%, 0);
+  }
+  49.98%,
+  62.64% {
+    transform: translate3d(0, -75%, 0);
+  }
+  66.64%,
+  79.3% {
+    transform: translate3d(0, -50%, 0);
+  }
+  83.3%,
+  95.96% {
+    transform: translate3d(0, -25%, 0);
+  }
 }
 
 @keyframes opacity {
-  0%, 100% {opacity:0;}
-  50% {opacity:1;}
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes change {
-  0%, 12.66%, 100% {transform:translate3d(0,0,0);}
-  16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-  33.32%,45.98% {transform:translate3d(0,-50%,0);}
-  49.98%,62.64% {transform:translate3d(0,-75%,0);}
-  66.64%,79.3% {transform:translate3d(0,-50%,0);}
-  83.3%,95.96% {transform:translate3d(0,-25%,0);}
+  0%,
+  12.66%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  16.66%,
+  29.32% {
+    transform: translate3d(0, -25%, 0);
+  }
+  33.32%,
+  45.98% {
+    transform: translate3d(0, -50%, 0);
+  }
+  49.98%,
+  62.64% {
+    transform: translate3d(0, -75%, 0);
+  }
+  66.64%,
+  79.3% {
+    transform: translate3d(0, -50%, 0);
+  }
+  83.3%,
+  95.96% {
+    transform: translate3d(0, -25%, 0);
+  }
 }
 
 // 6 is the number of animation.
