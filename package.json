@@ -57,7 +57,7 @@
     "webpack": "^2.6.1",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-dev-middleware": "^1.10.0",
-    "webpack-hot-middleware": "^2.25.0",
+    "webpack-hot-middleware": "^2.25.2",
     "webpack-merge": "^4.2.2"
   },
   "engines": {
